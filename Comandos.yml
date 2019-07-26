@@ -75,7 +75,7 @@ docker run -d -P (nome do container) : sobe o container e atribui as portas de a
 
 docker port (id do container) : mostra as porta que aquele container especifico tá usando
 
-docker-machine ip – mostra o ip da maquina virtual, se tiver usando docker toobox
+docker-machine ip : mostra o ip da maquina virtual, se tiver usando docker toobox
 
 docker run -d -P --name (atribui um nome) (nome da imagem) : roda o container especifico, com um nome atribuido 
 ex: docker run -d -P --name meu-site dockersamples/static-site
