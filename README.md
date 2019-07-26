@@ -9,5 +9,5 @@ arquivo 'docker-compose.yml', para subir o kafka e o zookeeper.
 
 1. Clone this repository: `https://github.com/Deyveson/ApacheKafka`
 2. `cd` into the `ApacheKafka` folder and run the following commands:
-    2.1 Up container `docker-compose up -d`
+    2. Up container `docker-compose up -d`
 3. Abra seu terminal e veja os containes rodando em `localhost: 2181/` zookeeper, `localhost: 9092/`, kafka.
