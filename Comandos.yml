@@ -1,3 +1,11 @@
+TODO: :*********COMANDOS DOCKER-COMPOSE*************:
+
+docker-compose up -d : Subindo container 
+
+docker-compose logs kafka | grep -i started : analisar a saúde do serviço do Kafka
+
+docker-compose logs zookeeper | grep -i binding : serve para analisar os logs do serviço Zookeeper
+
 Criação de Tópico Kafka: first-topic
 kafka-topic --zookeeper 127.0.0.1:2181 --topic first-topic --create --partitions 3 --replication-factor 1
 
@@ -26,6 +34,63 @@ MOSTRA OS INFORMAÇÕES DO TOPICO ("PartitionCount", "ReplicationFactor" ):
 ENTRANDO NO TERMINAL DO KAFKA:
   docker-compose exec kafka /bin/bash
 
-
+TESTANDO COM PRODUCER *observação*:
 docker-compose exec kafka / bash -c "seq 100 | kafka-console-producer --request-required-acks 1 
   --broker-list localhost:29092 --topic first-topic && echo 'Produced 100 messages.'"
+
+
+TODO: :*********COMANDOS BÁSICOS DOCKER*************:
+
+sudo pacman -S docker : install docker 
+
+sudo systemctl start docker : start Docker
+
+sudo systemctl status docker : check docker status
+
+docker ps : mostra os containers ativos
+
+docker ps -a : mostra todos os containers inativos e ativos
+
+docker run (nome do container) : cria um container e trava o terminal
+
+docker run -d (nome do container) : cria um container e não trava o terminal
+
+docker run -it (nome do container) : para abrir o terminal dentro do container
+ 
+docker start (id do container) : rodar um container especifico 
+
+docker stop (id do container) : parar um container especifico 
+
+docker stop -t 0 (id do container) : para um container especifico, e não espera 10 segundos 
+
+docker rm (id do container) : para excluir um container especifico 
+
+docker container prune : remove todos os containers 
+
+docker images : mostra todas as imagens 
+
+docker rmi (nome da imagem)  : remove a imagem especifico 
+
+docker run -d -P (nome do container) : sobe o container e atribui as portas de acesso
+
+docker port (id do container) : mostra as porta que aquele container especifico tá usando
+
+docker-machine ip – mostra o ip da maquina virtual, se tiver usando docker toobox
+
+docker run -d -P --name (atribui um nome) (nome da imagem) : roda o container especifico, com um nome atribuido 
+ex: docker run -d -P --name meu-site dockersamples/static-site
+
+docker run -d -p 1245:80 (nome da imagem) : para atribuir uma porta especifica a container
+
+docker run -d -P -e AUTHOR="Deyveson W" (nome da imagem) : adiciona uma variavel de ambiente 
+
+docker ps -q : Lista os containers pelo id
+
+docker stop $(docker ps -q) : ele para os containers que são retornado no docker ps -q
+
+docker logs -f --tail 100 (nome container) : exibe o log do container os ultimos 100 e continua exibindo.
+
+ssh root@192.168.151.1 (ip do servidor) : entra no servidor pelo terminal
+
+
+
