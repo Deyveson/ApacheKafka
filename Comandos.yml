@@ -1,0 +1,31 @@
+Criação de Tópico Kafka: first-topic
+kafka-topic --zookeeper 127.0.0.1:2181 --topic first-topic --create --partitions 3 --replication-factor 1
+
+Criação de Tópico Kafka: second-topic
+./kafka-topics.sh --zookeeper $KAFKA_ZOOKEEPER_CONNECT --topic second-topic --create --partitions 6 --replication-factor 1
+
+Exclusão de Tópico Kafka: second-topic
+kafka-topic --zoopeeper 127.0.0.1:2181 --topic second-topic --delete
+
+Informação de descrição tópico Kafka:
+kafka-topic --zookeeper 127.0.0.1:2181 --topic first-topic --describe
+
+Kafka Console Producer CLI:
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic first-topic
+
+Criação de Tópico Kafka:
+docker-compose exec kafka  \
+  kafka-topic --zookeeper localhost:2181 --topic second-topic --create --partitions 6 --replication-factor 1
+
+Listando os topicos criados:
+  ./kafka-topics.sh --zookeeper $KAFKA_ZOOKEEPER_CONNECT --list
+
+MOSTRA OS INFORMAÇÕES DO TOPICO ("PartitionCount", "ReplicationFactor" ):
+  ./kafka-topics.sh --describe --topic second-topic --zookeeper $KAFKA_ZOOKEEPER_CONNECT
+
+ENTRANDO NO TERMINAL DO KAFKA:
+  docker-compose exec kafka /bin/bash
+
+
+docker-compose exec kafka / bash -c "seq 100 | kafka-console-producer --request-required-acks 1 
+  --broker-list localhost:29092 --topic first-topic && echo 'Produced 100 messages.'"
