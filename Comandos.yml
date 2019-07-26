@@ -38,7 +38,6 @@ TESTANDO COM PRODUCER *observação*:
 docker-compose exec kafka / bash -c "seq 100 | kafka-console-producer --request-required-acks 1 
   --broker-list localhost:29092 --topic first-topic && echo 'Produced 100 messages.'"
 
-
 TODO: :*********COMANDOS BÁSICOS DOCKER*************:
 
 sudo pacman -S docker : install docker 
