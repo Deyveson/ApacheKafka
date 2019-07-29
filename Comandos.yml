@@ -38,13 +38,13 @@ TESTANDO COM PRODUCER *observação*:
 docker-compose exec kafka / bash -c "seq 100 | kafka-console-producer --request-required-acks 1 
   --broker-list localhost:29092 --topic first-topic && echo 'Produced 100 messages.'"
 
-INSERINDO DADOS NO TOPIC 'kafka-console-producer':
+INSERINDO DADOS NO TOPIC:
   kafka-console-producer.sh --broker-list $KAFKA_ADVERTISED_HOST_NAME:9092 --topic first-topic
 
-LENDO OS DADOS NO TOPIC REAL TIME 'kafka-console-consumer':
+LENDO OS DADOS NO TOPIC REAL TIME:
   kafka-console-consumer.sh --bootstrap-server $KAFKA_ADVERTISED_HOST_NAME:9092 --topic first-topic 
 
-LENDO TODOS OS DADOS DO TOPIC 'kafka-console-consumer':
+LENDO OS DADOS DO TOPIC antigos e os novos:
   kafka-console-consumer.sh --bootstrap-server $KAFKA_ADVERTISED_HOST_NAME:9092 --topic first-topic --from-beginning
 
 TODO: :*********COMANDOS BÁSICOS DOCKER*************:
