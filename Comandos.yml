@@ -41,8 +41,11 @@ docker-compose exec kafka / bash -c "seq 100 | kafka-console-producer --request-
 INSERINDO DADOS NO TOPIC 'kafka-console-producer':
   kafka-console-producer.sh --broker-list $KAFKA_ADVERTISED_HOST_NAME:9092 --topic first-topic
 
-LENDO DADOS NO TOPIC 'kafka-console-consumer':
+LENDO OS DADOS NO TOPIC REAL TIME 'kafka-console-consumer':
   kafka-console-consumer.sh --bootstrap-server $KAFKA_ADVERTISED_HOST_NAME:9092 --topic first-topic 
+
+LENDO TODOS OS DADOS DO TOPIC 'kafka-console-consumer':
+  kafka-console-consumer.sh --bootstrap-server $KAFKA_ADVERTISED_HOST_NAME:9092 --topic first-topic --from-beginning
 
 TODO: :*********COMANDOS BÁSICOS DOCKER*************:
 
